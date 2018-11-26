@@ -59,7 +59,7 @@ class UR5WithGripperController(object):
         self.q_min = [-6.28319, -6.28319, -6.28319, -6.28319, -6.28319, -6.28319, 0]
         self.q_max = [6.28319, 6.28319, 6.28319, 6.28319, 6.28319, 6.28319, 0]
         self.velocity_limits = [3.15, 3.15, 3.15, 3.2, 3.2, 3.2, 1.2]
-        self.acc_limits = [10, 10, 10, 10, 10, 10, 0]
+        self.acc_limits = [10, 10, 10, 10, 10, 10, 10]
         
         if randomize:
             for i in range(6):
@@ -264,8 +264,11 @@ class UR5WithGripperController(object):
 #         print("Q CMD: {0}".format(self.qcmd))
 
         kp = doubleVector([100, 20000, 2000, 2000, 1000, 10, 1])
-        ki = doubleVector([10, 10, 10, 10, 10, 10, 1])
-        kd = doubleVector([50, 400, 50, 50, 100, 10, .18])
+        ki = doubleVector([10, 10, 10, 10, 10, 1, 1])
+        kd = doubleVector([50, 400, 50, 50, 100, 5, .18])
+#         kp = doubleVector([100, 20000, 2000, 2000, 1000, 10, 100])
+#         ki = doubleVector([10, 10, 10, 10, 10, 10, 10])
+#         kd = doubleVector([50, 400, 50, 50, 100, 10, 50])
         self._controller.setPIDGains(kp, ki, kd)
         
         if self.qcmd is not None:
