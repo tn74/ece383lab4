@@ -229,6 +229,7 @@ class UR5WithGripperController(object):
         
         if joint == 6:
             qcmd_target *= 0.723
+            
         
         TS_TO_STOP = 15
         
