@@ -227,8 +227,9 @@ class UR5WithGripperController(object):
         set_velocity = 0
         set_position = qcmd_target
         
-        if joint == 6:
-            qcmd_target *= 0.723
+#         if joint == 6:
+#             qcmd_target *= 0.723
+            
         
         TS_TO_STOP = 15
         
